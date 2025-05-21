@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Editar Usuario - Control de Acceso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet" />
+    <style>
+        /* Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.75rem;
+            margin: 0;
+            color: #84d2f6;
+            letter-spacing: 0.05em;
+            user-select: none;
+        }
+        main {
+            flex-grow: 1;
+            max-width: 900px;
+            margin: 2.5rem auto;
+            padding: 0 1rem;
+        }
+        section {
+            background: #1e1e1e;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            padding: 2rem;
+        }
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #58a6ff;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            user-select: none;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #a1a1a1;
+            user-select: none;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.65rem 1rem;
+            border: none;
+            border-radius: 8px;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            background-color: #2d2d2d;
+            box-shadow: 0 0 8px 2px #58a6ff;
+        }
+        button[type="submit"] {
+            background: linear-gradient(90deg, #58a6ff, #1c74d0);
+            border: none;
+            color: #fff;
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.4s ease;
+            display: block;
+            margin: 1.5rem auto 0;
+        }
+        button[type="submit"]:hover {
+            background: linear-gradient(90deg, #1c74d0, #58a6ff);
+        }
+        .cancel-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 2rem;
+            border: 2px solid #84d2f6;
+            border-radius: 30px;
+            color: #84d2f6;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .cancel-btn:hover {
+            background-color: #84d2f6;
+            color: #121212;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #0d0d0d;
+            font-size: 0.9rem;
+            color: #555;
+            user-select: none;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Edición de Usuario</h1>
+    <a href="/usuarios" class="cancel-btn" aria-label="Volver a la gestión de usuarios">⬅ Volver</a>
+</header>
+<main>
+    <section>
+        <h2>Editar Usuario</h2>
+        <form method="POST">
+            <div>
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" value="{{ usuario.name }}" required />
+            </div>
+            <div>
+                <label for="rfid">RFID</label>
+                <input type="text" id="rfid" name="rfid" value="{{ usuario.rfid }}" required />
+            </div>
+            <div>
+                <label for="username">Usuario</label>
+                <input type="text" id="username" name="username" value="{{ usuario.username }}" required />
+            </div>
+            <div>
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" value="{{ usuario.password }}" required />
+            </div>
+            <button type="submit">Actualizar Usuario</button>
+        </form>
+    </section>
+</main>
+<footer>
+    &copy; 2025 Control Acceso • Todos los derechos reservados
+</footer>
+</body>
+</html>

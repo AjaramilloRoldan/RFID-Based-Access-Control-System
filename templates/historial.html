@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Historial de Entradas - Control Acceso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.75rem;
+      margin: 0;
+      color: #84d2f6;
+      letter-spacing: 0.05em;
+      user-select: none;
+    }
+    header a.btn-back {
+      color: #84d2f6;
+      border: 2px solid #84d2f6;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    header a.btn-back:hover {
+      background-color: #84d2f6;
+      color: #121212;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: 2.5rem auto;
+      padding: 0 1rem;
+    }
+    
+    h2.section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #58a6ff;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      user-select: none;
+    }
+
+    .btn-filter {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 0.65rem 1rem;
+      width: 100%;
+      font-size: 1rem;
+      color: #e0e0e0;
+      border: none;
+      outline: none;
+      margin-bottom: 1.8rem;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-filter:focus {
+      background-color: #2d2d2d;
+      box-shadow: 0 0 8px 2px #58a6ff;
+      color: #fff;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 10px;
+    }
+    thead tr {
+      background: transparent;
+    }
+    thead th {
+      color: #8ab4f8;
+      font-weight: 700;
+      padding: 12px 15px;
+      text-align: left;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+    }
+    tbody tr {
+      background: #2a2a2a;
+      box-shadow: inset 0 0 12px rgba(40, 130, 220, 0.3);
+      border-radius: 12px;
+      transition: background-color 0.25s;
+    }
+    tbody tr:hover {
+      background: #3d3d3d;
+    }
+    tbody td {
+      padding: 15px 15px;
+      color: #d0d7ff;
+      font-size: 1rem;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #0d0d0d;
+      font-size: 0.9rem;
+      color: #555;
+      user-select: none;
+      margin-top: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      main {
+        margin: 1rem;
+      }
+      thead th, tbody td {
+        font-size: 0.9rem;
+        padding: 0.75rem 10px;
+      }
+    }
+  </style>
+  <script>
+    function filtrarHistorial() {
+      let input = document.getElementById("filtro").value.toLowerCase();
+      let filas = document.querySelectorAll("#tabla-historial tbody tr");
+
+      filas.forEach(fila => {
+        let texto = fila.innerText.toLowerCase();
+        fila.style.display = texto.includes(input) ? "" : "none";
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Historial</h1>
+    <a href="/dashboard" class="btn-back" aria-label="Volver al panel">⬅ Volver</a>
+  </header>
+  <main>
+    <h2 class="section-title">Historial de Entradas</h2>
+    <input type="text" id="filtro" class="btn-filter" onkeyup="filtrarHistorial()" placeholder="Buscar por usuario, fecha o estado..." aria-label="Buscar en historial" />
+    <table id="tabla-historial" aria-label="Tabla de historial de entradas">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Usuario</th>
+          <th>Fecha y Hora</th>
+          <th>Acceso</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for log in logs %}
+        <tr>
+          <td>{{ log.id }}</td>
+          <td>{{ log.usuario }}</td>
+          <td>{{ log.fecha }}</td>
+          <td>{{ log.estado }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+  <footer>
+    &copy; 2024 Control Acceso • Todos los derechos reservados
+  </footer>
+</body>
+</html>
+

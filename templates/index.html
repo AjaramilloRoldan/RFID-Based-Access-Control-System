@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Control de Acceso - Inicio</title>
+    <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Montserrat:wght@700&display=swap');
+
+        /* Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #1a1c20, #23262e);
+            color: #e8e8e8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(90deg, #0a74da, #004e8a);
+            box-shadow: 0 8px 24px rgba(10, 116, 218, 0.6);
+        }
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 3.5rem;
+            margin: 0 0 1rem;
+            letter-spacing: 0.1em;
+            color: #f0f8ff;
+            user-select: none;
+        }
+        header p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0 0 2rem;
+            color: #d0def9aa;
+            user-select: none;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: #ffd600;
+            color: #121212;
+            font-weight: 700;
+            font-size: 1.25rem;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 214, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            user-select: none;
+            border: none;
+            text-decoration: none;
+        }
+        .btn-primary:hover, .btn-primary:focus {
+            transform: scale(1.05);
+            box-shadow: 0 12px 26px rgba(255, 214, 0, 0.9);
+            outline: none;
+        }
+
+        /* Main Content Styles */
+        main {
+            flex-grow: 1;
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        section {
+            margin-bottom: 6rem;
+        }
+
+        /* Card Styles */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        .card {
+            background: linear-gradient(135deg, #2e3d57, #22304a);
+            padding: 2rem 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+        }
+        .card svg {
+            width: 64px;
+            height: 64px;
+            fill: #ffd600;
+            margin-bottom: 1.25rem;
+        }
+        .card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffe75e;
+        }
+        .card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #cfd7f7cc;
+        }
+
+        /* Info Section Styles */
+        .info {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 1.125rem;
+            color: #ccd5f8cc;
+            line-height: 1.7;
+            user-select: text;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #111622;
+            padding: 2rem 1rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            user-select: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            header p {
+                font-size: 1.1rem;
+            }
+            .btn-primary {
+                font-size: 1rem;
+                padding: 0.8rem 2.5rem;
+            }
+            main {
+                margin: 3rem 1rem;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+    <h1>Sistema de Control de Acceso Automatizado</h1>
+    <p>Solución inteligente para seguridad, accesibilidad y gestión eficiente</p>
+    <a href="/login" class="btn-primary" tabindex="0" aria-label="Ingresar al sistema">Ingresar al sistema</a>
+</header>
+
+<!-- Main Content -->
+<main>
+
+    <!-- Brief Description Section -->
+    <section class="info" aria-label="Descripción breve del sistema">
+        <p>
+            Nuestro sistema integra la última tecnología en RFID, IoT y plataformas web para ofrecer una experiencia completa y segura en el control de accesos.
+            Equipado con hardware avanzado y software intuitivo, proporciona gestión en tiempo real, trazabilidad completa y flexibilidad para adaptarse a diversos entornos empresariales.
+        </p>
+    </section>
+
+    <!-- Features Section -->
+    <section aria-labelledby="section-features">
+        <h2 id="section-features" style="text-align:center; margin-bottom:3rem; font-family: 'Montserrat', sans-serif; color:#ffe75e;">
+            Características Destacadas
+        </h2>
+        <div class="cards">
+            <article class="card" tabindex="0" role="region" aria-label="Seguridad avanzada">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                    <path d="M32 2C17.64 2 6 13.64 6 28v12a12 12 0 0012 12h28a12 12 0 0012-12V28C58 13.64 46.36 2 32 2zm20 38a8 8 0 01-8 8H20a8 8 0 01-8-8V28c0-11 17.4-16 20-16s20 5 20 16v12z"/>
+                    <path d="M32 34a6 6 0 106 6 6 6 0 00-6-6z"/>
+                </svg>
+                <h3>Seguridad Avanzada</h3>
+                <p>Autenticación precisa con RFID, controles jerárquicos y monitorización en tiempo real para proteger tus instalaciones.</p>
+            </article>
+
+            <article class="card" tabindex="0" role="region" aria-label="Integración y conectividad">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                    <circle cx="32" cy="32" r="30" fill="none" stroke="#ffd600" stroke-width="4"/>
+                    <path d="M32 6v12M32 46v12M18 20l-8 8M54 20l8 8M18 44l-8-8M54 44l8-8" stroke="#ffd600" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+                <h3>Integración Total</h3>
+                <p>Plataforma web y hardware perfectamente integrados para control, análisis y gestión accesible desde cualquier lugar.</p>
+            </article>
+
+            <article class="card" tabindex="0" role="region" aria-label="Usabilidad y experiencia">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                    <rect x="12" y="20" width="40" height="24" rx="4" ry="4" fill="none" stroke="#ffd600" stroke-width="4"/>
+                    <circle cx="32" cy="32" r="7" fill="none" stroke="#ffd600" stroke-width="4"/>
+                    <path d="M32 25v6h6" stroke="#ffd600" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+                <h3>Diseño Intuitivo</h3>
+                <p>Interfaz sencilla y accesible que facilita la gestión diaria y mejora la experiencia del usuario.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="info" aria-label="Beneficios del sistema">
+        <h2 style="text-align:center; font-family: 'Montserrat', sans-serif; color:#ffe75e; margin-bottom:1.5rem;">Beneficios Clave</h2>
+        <ul style="max-width:600px; margin:0 auto; list-style:none; padding:0; font-size:1.1rem; color:#ddd;">
+            <li style="margin-bottom:0.8rem; padding-left:1.75rem; position:relative;">
+                <span style="position:absolute; left:0; top:50%; transform:translateY(-50%); font-weight:bold; color:#ffd600;">✔</span>
+                Seguridad integral 24/7 para tu organización.
+            </li>
+            <li style="margin-bottom:0.8rem; padding-left:1.75rem; position:relative;">
+                <span style="position:absolute; left:0; top:50%; transform:translateY(-50%); font-weight:bold; color:#ffd600;">✔</span>
+                Control de accesos eficiente y automatizado.
+            </li>
+            <li style="margin-bottom:0.8rem; padding-left:1.75rem; position:relative;">
+                <span style="position:absolute; left:0; top:50%; transform:translateY(-50%); font-weight:bold; color:#ffd600;">✔</span>
+                Plataforma web para administración centralizada.
+            </li>
+            <li style="margin-bottom:0.8rem; padding-left:1.75rem; position:relative;">
+                <span style="position:absolute; left:0; top:50%; transform:translateY(-50%); font-weight:bold; color:#ffd600;">✔</span>
+                Datos y análisis en tiempo real para mayor decisión.
+            </li>
+            <li style="margin-bottom:0.8rem; padding-left:1.75rem; position:relative;">
+                <span style="position:absolute; left:0; top:50%; transform:translateY(-50%); font-weight:bold; color:#ffd600;">✔</span>
+                Escalable para todo tipo de negocio o infraestructura.
+            </li>
+        </ul>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section aria-label="Llamado a la acción" style="text-align:center; padding-bottom: 4rem;">
+        <a href="/login" class="btn-primary" style="font-family: 'Montserrat', sans-serif; font-size:1.3rem;">Solicita una demo personalizada</a>
+    </section>
+
+</main>
+
+<!-- Footer Section -->
+<footer style="background:#0a1524; padding:1.5rem; text-align:center; color:#666; font-size:0.875rem; user-select:none;">
+    © 2025 Control de Acceso - Proyecto Académico | Diseño & Desarrollo Profesional
+</footer>
+
+</body>
+</html>
